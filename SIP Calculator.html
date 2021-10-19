@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.0/css/font-awesome.min.css"
+      integrity="sha512-qzsydzu6gfStN6UWt9NizKtvHV1hEagyv1teXmjtgDkV7MG/dFrjAtY81gAlJh2NAkYrSGDPc/iW25JKvtSdfw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="holder">
+      <style>
+        .holder {
+          width: 100%;
+        }
+        .box1 {
+          float: left;
+          width: 19%;
+          background-color: #fff;
+          text-align: center;
+          height: 100px;
+          margin: 0 5px;
+          border: 1px dashed #ccc;
+        }
+        .label1 {
+          background-color: #1d662d;
+          color: #fff;
+          font-size: 16px;
+          width: 100%;
+          display: block;
+          margin-bottom: 10px;
+          padding: 10px;
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+        }
+        input[type="number"] {
+          -moz-appearance: textfield;
+        }
+
+        input:focus {
+          outline: none;
+          box-shadow: 0px 5px 5px 0px #ccc;
+        }
+
+        .rezbtn {
+          width: 14px;
+          border: none;
+          border-radius: 0;
+          font-size: 10px;
+          background: none;
+          cursor: pointer;
+          color: #6ccb82 !important;
+        }
+        .rezbtn:hover {
+          background: #6ccb82 !important;
+          color: #fff !important;
+        }
+        .principalText,
+        .rateText {
+          font-size: 14px;
+          font-weight: 600;
+          width: 70% !important;
+          height: 40px;
+          text-align: center;
+          border: none;
+          padding: 5px;
+        }
+        .years select {
+          width: 80%;
+          height: 40px;
+          border: navajowhite;
+          text-align: center;
+          text-indent: 40%;
+          font-size: 14px;
+          font-weight: 600;
+          background-color: #fff;
+        }
+        .value {
+          font-size: 14px;
+          font-weight: 600;
+          margin-top: 20px;
+        }
+
+        @media (max-width: 700px) {
+          .box1 {
+            width: 100%;
+            margin: 5px 0;
+          }
+        }
+      </style>
+      <div class="invested box1">
+        <label for="futureValue" class="label1">Monthly Investment</label>
+        <button class="rezbtn less disable" type="button">
+          <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <input class="principalText" id="principalText" type="number" value="5000" min="500" max="10,00,000" />
+        <button class="rezbtn add">
+          <i class="fa fa-chevron-right" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="years box1">
+        <label for="futureValue" class="label1">Investment Period</label>
+        <select name="noofyears" id="noofyears" class="years">
+          <option value="2">2 Years</option>
+          <option value="3">3 Years</option>
+          <option value="4">4 Years</option>
+          <option value="5" selected>5 Years</option>
+          <option value="6">6 Years</option>
+          <option value="7">7 Years</option>
+          <option value="8">8 Years</option>
+          <option value="9">9 Years</option>
+          <option value="10">10 Years</option>
+          <option value="11">11 Years</option>
+          <option value="12">12 Years</option>
+          <option value="13">13 Years</option>
+          <option value="14">14 Years</option>
+          <option value="15">15 Years</option>
+          <option value="16">16 Years</option>
+          <option value="17">17 Years</option>
+          <option value="18">18 Years</option>
+          <option value="19">19 Years</option>
+          <option value="20">20 Years</option>
+          <option value="21">21 Years</option>
+          <option value="22">22 Years</option>
+          <option value="23">23 Years</option>
+          <option value="24">24 Years</option>
+          <option value="25">25 Years</option>
+          <option value="26">26 Years</option>
+          <option value="27">27 Years</option>
+          <option value="28">28 Years</option>
+          <option value="29">29 Years</option>
+          <option value="30">30 Years</option>
+          <option value="31">31 Years</option>
+          <option value="32">32 Years</option>
+          <option value="33">33 Years</option>
+          <option value="34">34 Years</option>
+          <option value="35">35 Years</option>
+        </select>
+      </div>
+      <div class="rate box1">
+        <label for="futureValue" class="label1">Expected Returen (%)</label>
+        <button class="rezbtn rateLess disable" type="button">
+          <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <input class="rateText" id="rateText" type="number" value="9.5" min="1.5" max="20.5" />
+        <button class="rezbtn rateAdd">
+          <i class="fa fa-chevron-right" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="box1">
+        <label for="totalInvestment" class="label1">Total Investment</label>
+        <h3 class="totalInvestment value">₹ 3,00,000</h3>
+      </div>
+      <div class="box1">
+        <label for="futureValue" class="label1">Future Value</label>
+        <h3 class="futureValue value">₹ 3,85,136</h3>
+      </div>
+    </div>
+    <script>
+      // //setting default attribute to disabaled for less button
+      // document.querySelector(".less").setAttribute("disabled", "disabled");
+      // document.querySelector(".rateLess").setAttribute("disabled", "disabled");
+      //taking value to increment and decrement input value
+      // let valueCount;
+
+      // let investVal = 500;
+      // //setting invest value
+      // let investVal = 500;
+
+      // function totalInv(){
+      //     let total =valueCount * investVal;
+
+      //     console.log(total)
+      // }
+
+      // function addFunc() {
+      //   document.getElementById("principalText").stepUp(500);
+      // }
+      console.log("This Script Is not meant for Commercial Use... cONTENT cREATOR rEZAK aLI");
+      let displayTotal = document.querySelector(".totalInvestment");
+      let displayMaturity = document.querySelector(".futureValue");
+
+      function calculate() {
+        // document.getElementById("principalText").stepUp(500);
+        let principal = document.getElementById("principalText").value;
+
+        console.log("principle" + " " + principal);
+
+        var period = document.getElementById("noofyears").value;
+        //  var freq = parseFloat(document.getElementById("frequency").value);
+        var freq = 1;
+        var rateofreturn = document.getElementById("rateText").value;
+        if (isNaN(principal)) {
+          alert("Please enter Amount Invested in each Installment");
+        } else if (isNaN(period)) {
+          alert("Please enter No of Years");
+        } else if (isNaN(freq)) {
+          alert("Please enter Frequency");
+        } else if (isNaN(rateofreturn)) {
+          alert("Please enter Rate of Return");
+        } else {
+          var instalment_amount = principal;
+          var no_of_compounding_periods = (12 / freq) * period;
+          var int_rate_per_period = rateofreturn / (12 / freq) / 100;
+          var total_amount_invested = period * instalment_amount * 12;
+          var expected_amount_on_maturity =
+            instalment_amount *
+            ((Math.pow(1 + int_rate_per_period, no_of_compounding_periods) - 1) / int_rate_per_period) *
+            (1 + int_rate_per_period);
+
+          let amtExpect = Math.round(expected_amount_on_maturity);
+
+          nfObject = new Intl.NumberFormat("en-IN");
+          outputTotal = nfObject.format(total_amount_invested);
+          outputMaturity = nfObject.format(amtExpect);
+          displayTotal.innerHTML = `₹${outputTotal}`;
+          displayMaturity.innerHTML = `₹${outputMaturity}`;
+
+          //   document.getElementById(
+          //     "totalInvested"
+          //   ).value = total_amount_invested.toFixed(2);
+
+          //   document.getElementById(
+          //     "expectedAmount"
+          //   ).value = expected_amount_on_maturity.toFixed(2);
+          //   let diff = expected_amount_on_maturity - total_amount_invested;
+          //   console.log(diff);
+          //   console.log(expected_amount_on_maturity);
+        }
+      }
+
+      //plus button
+      document.querySelector(".add").addEventListener("click", function () {
+        //getting value of input
+
+        document.getElementById("principalText").stepUp(500);
+        let principal = document.getElementById("principalText").value;
+
+        // valueCount = document.querySelector(".principalText").value;
+
+        // //input value incremented by 1
+        // valueCount.stepUp(500);
+
+        // //setting increment input value
+        // document.querySelector(".principalText").value = valueCount;
+
+        if (principal > 1) {
+          document.querySelector(".less").removeAttribute("disabled");
+          document.querySelector(".less").classList.remove("disabled");
+        }
+        calculate();
+      });
+
+      //Minus button
+      document.querySelector(".less").addEventListener("click", function () {
+        //getting value of input
+        document.getElementById("principalText").stepDown(500);
+        let principal = document.getElementById("principalText").value;
+        // valueCount = document.querySelector(".text").value;
+
+        // //input value incremented by 1
+        // valueCount--;
+
+        // //setting increment input value
+        // document.querySelector(".text").value = valueCount;
+
+        if (principal == 500) {
+          document.querySelector(".less").setAttribute("disabled", "disabled");
+        }
+        calculate();
+      });
+
+      //select button
+      document.querySelector("#noofyears").addEventListener("change", function () {
+        noOfYears = document.querySelector("#noofyears").value;
+        calculate();
+      });
+
+      //RATEplus button
+      document.querySelector(".rateAdd").addEventListener("click", function () {
+        //getting value of input
+
+        document.getElementById("rateText").stepUp(1);
+        let rate = document.getElementById("rateText").value;
+
+        // valueCount = document.querySelector(".principalText").value;
+
+        // //input value incremented by 1
+        // valueCount.stepUp(500);
+
+        // //setting increment input value
+        // document.querySelector(".principalText").value = valueCount;
+
+        if (rate > 1) {
+          document.querySelector(".rateLess").removeAttribute("disabled");
+          document.querySelector(".rateLess").classList.remove("disabled");
+        }
+        calculate();
+      });
+
+      //RATEMinus button
+      document.querySelector(".rateLess").addEventListener("click", function () {
+        //getting value of input
+        document.getElementById("rateText").stepDown(1);
+        let rate = document.getElementById("rateText").value;
+        console.log(rate);
+        // valueCount = document.querySelector(".text").value;
+
+        // //input value incremented by 1
+        // valueCount--;
+
+        // //setting increment input value
+        // document.querySelector(".text").value = valueCount;
+
+        if (rate == 1.5) {
+          document.querySelector(".rateLess").setAttribute("disabled", "disabled");
+        }
+        calculate();
+      });
+
+      document.querySelector("#principalText").addEventListener("change", function () {
+        calculate();
+      });
+
+      document.querySelector("#rateText").addEventListener("change", function () {
+        calculate();
+      });
+    </script>
+  </body>
+</html>
